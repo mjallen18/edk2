@@ -1386,7 +1386,7 @@ Voltage33Retry:
       Status = SdMmcHcSetSignalingVoltage (ControllerHandle, PciIo, Slot, SdMmcSignalingVoltage18);
       if (EFI_ERROR (Status)) {
         DEBUG ((DEBUG_ERROR, "SdCardIdentification: Couldn't set 1.8V signaling: %r\n", Status));
-        return Status;
+        goto Error;
       }
 
       Status = SdMmcHcStartSdClock (PciIo, Slot);
